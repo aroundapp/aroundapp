@@ -10,13 +10,21 @@ import {
 } from 'react-native';
 
 import SignIn from './components/signin';
+import Feeds from './components/feed';
+import UserStore from './store/user-store';
+import Actions from './actions';
 
 const Routes = {
-  signin: SignIn 
+  signin: SignIn,
+  feeds: Feeds
 }
 
 export default class Around extends Component {
   
+  componentWillMount() {
+    Actions.getLocation();
+  }
+
   componentWillUnmount() {
     // Clearing the gps location tracker
     navigator.geolocation.clearWatch(this.watchID);

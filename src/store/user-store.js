@@ -70,6 +70,7 @@ var UserStore = Reflux.createStore({
     },
 
     getLocationInfo: function(){
+        console.log('Current pos', this.currentPosition);
         this._triggerLocationInfo();
     },
 

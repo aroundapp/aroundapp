@@ -24,6 +24,7 @@ var PostStore = Reflux.createStore({
         if (this.fetchedIds.length){
             params.not_ids = this.fetchedIds.join();
         }
+        console.log('GET posts params', params);
         API.getPosts(params)
         .then(function(data) {
             console.log(data);
@@ -38,7 +39,7 @@ var PostStore = Reflux.createStore({
             }
         }.bind(this))
         .catch(function(err){
-            console.log(err);
+            console.log('Error : ', err);
         }.bind(this))
     },
 

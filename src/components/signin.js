@@ -61,7 +61,7 @@ export default class SignIn extends Component {
             userIconStyle: styles.userIconPhoto
           });
           Actions.saveUserInfo(data);
-          // this._openFeed();
+          this._openFeed();
         })
         .catch((error) => {
           console.log("Verify login error", error);
@@ -122,11 +122,17 @@ export default class SignIn extends Component {
               userIconStyle: styles.userIconPhoto
             })
             Actions.saveUserInfo(data);
-            // this._openFeed();
+            this._openFeed();
           });
         });
     }
   }
+
+   _openFeed(){
+        setTimeout(function(){
+            this.props.navigator.push({name: 'feeds'});
+        }.bind(this), 2000);
+    }
 
   _renderCircles() {
     let circles = [];
