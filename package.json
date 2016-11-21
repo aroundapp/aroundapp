@@ -10,7 +10,9 @@
     "moment-timezone": "^0.5.9",
     "react": "15.3.2",
     "react-native": "0.37.0",
+    "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git",
     "react-native-fbsdk": "^0.4.0",
+    "react-native-image-resizer": "0.0.12",
     "react-native-material-design": "^0.3.7",
     "reflux": "^5.0.1"
   },

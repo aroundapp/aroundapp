@@ -11,12 +11,14 @@ import {
 
 import SignIn from './components/signin';
 import Feeds from './components/feed';
+import Post from './components/post';
 import UserStore from './store/user-store';
 import Actions from './actions';
 
 const Routes = {
   signin: SignIn,
-  feeds: Feeds
+  feeds: Feeds,
+  post: Post
 }
 
 export default class Around extends Component {

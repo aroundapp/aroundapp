@@ -28,7 +28,7 @@ export default class Header extends Component {
     if (typeof(this.props.onBack) == 'function'){
       toolBar = <ToolbarAndroid
         navIcon={require('./../../../images/arrowleft.png')}
-        onIconClicked={this.props.onBack}
+        onIconClicked={() => this.props.onBack()}
         title={"Around"}
         titleColor={"#FFFFFF"}
         style={styles.header} />

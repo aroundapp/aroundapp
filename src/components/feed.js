@@ -15,14 +15,14 @@ import ReactNative, {
 import Reflux from 'reflux';
 import Moment from 'moment-timezone';
 
-import FloatBtn from './common/floatbtn';
-import Header from './common/header';
+import Actions from './../actions';
 import CommonStyles from './common/styles';
 import Card from './common/card';
+import FloatBtn from './common/floatbtn';
+import Header from './common/header';
 import Loading from './common/loading';
 import PostStore from './../store/post-store';
 import UserStore from './../store/user-store';
-import Actions from './../actions';
 
 let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
@@ -53,9 +53,14 @@ export default class Feeds extends Component {
     this.listenToPostStore();
     this.listenToUserStore();
   }
+
+  componentWillUnmount() {
+    this.postStoreUnsubscribe();
+    this.userStoreUnsubscribe();
+  }
   
   listenToPostStore() {
-    PostStore.listen((event, data) => {
+    this.postStoreUnsubscribe = PostStore.listen((event, data) => {
       if(event == 'postupdate'){
 
         // At least one post found flag
@@ -95,7 +100,7 @@ export default class Feeds extends Component {
   }
 
   listenToUserStore() {
-    UserStore.listen((event, data) => {
+    this.userStoreUnsubscribe = UserStore.listen((event, data) => {
       if(event == 'locationinfo'){
         // So that this event doesn't fetch post when it's not in
         // Feeds page
@@ -113,7 +118,7 @@ export default class Feeds extends Component {
   }
 
   _onAddPostBtnPress() {
-    // this.props.navigator.push({name: 'post'});
+    this.props.navigator.push({name: 'post'});
   }
 
   _renderPost(post){
@@ -149,8 +154,8 @@ export default class Feeds extends Component {
   }
 
   openPostupdate(postDetails) {
-    // this.props.navigator.postDetails = postDetails;
-    // this.props.navigator.push({name: 'post'});
+    this.props.navigator.postDetails = postDetails;
+    this.props.navigator.push({name: 'post'});
   }
 
   render() {
