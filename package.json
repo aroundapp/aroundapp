@@ -13,7 +13,7 @@
     "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git",
     "react-native-fbsdk": "^0.4.0",
     "react-native-image-resizer": "0.0.12",
-    "react-native-material-design": "^0.3.7",
+    "react-native-material-design": "git+https://github.com/sanbornsen/react-native-material-design.git",
     "reflux": "^5.0.1"
   },
   "jest": {

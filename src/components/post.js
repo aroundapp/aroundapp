@@ -301,7 +301,8 @@ export default class Post extends Component {
       text={this.state.updatepost?'SAVE':'PUBLISH'}
       raised={true}
       overrides={overRides}
-      disabled={!this.state.allowPublish || !this.state.gotLocation || !this.state.text.length}
+      loading={this.state.posting}
+      disabled={(!this.state.allowPublish && !this.state.posting) || !this.state.gotLocation || !this.state.text.length}
       onPress={() => this._onPublishBtnPress()}/>
   }
 
